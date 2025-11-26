@@ -1,25 +1,39 @@
 # 1. Create and activate virtual env (recommended)
+```
 python3 -m venv .venv
 source .venv/bin/activate   # Linux/macOS
 # .venv\Scripts\activate    # Windows PowerShell
+```
 
 # 2. Install dependencies
+```
 pip install -r requirements.txt
+```
 
 # 3. Generate dummy CSV data (default 24 hours, 3 nodes)
+```
 python simulator/simulator_generate_traces.py --out data/dummy_traces.csv --nodes 3 --hours 24 --event-rate 1.2 --seed 42
+```
 
 # 4. Train Q-learning baseline (runs on dummy sim environment)
+```
 python training/q_learning.py --episodes 2000 --save models/qtable.npy
+```
 
 # 5. Train TinyML classifier (creates small Keras model and tflite)
+```
 python training/tinyml_train.py --input data/dummy_traces.csv --out training/models/tiny_model.tflite
+```
 
 # 6. Export policy table to a deployable JSON
+```
 python training/policy_export.py --qtable_path models/qtable.npy --out training/models/q_policy.json
+```
 
 # 7. Run evaluation script to compare policies (uses CSVs)
+```
 python experiments/evaluation.py --data data/dummy_traces.csv
+```
 
 # To run all project at once
 ```
