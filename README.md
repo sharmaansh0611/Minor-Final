@@ -19,6 +19,10 @@ python3 -m  simulator.simulator_generate_traces --out data/dummy_traces.csv --no
 ```
 python3 -m  training.q_learning --episodes 2000 --save training/models/qtable.npy
 ```
+Then
+```
+python training/policy_export.py --qtable_path training/models/qtable.npy --out training/models/q_policy.json
+```
 
 # 5. Train TinyML classifier (creates small Keras model and tflite)
 ```
