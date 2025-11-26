@@ -1,0 +1,9 @@
+flowchart LR
+  Simulator --> Env[RL Environment]
+  Env --> Agent[Agent / Q-Learning]
+  Agent --> Action
+  Action --> Env
+  Env --> Reward
+  Reward --> Agent
+  Agent --> PolicyExport[Policy Export]
+  PolicyExport --> Firmware

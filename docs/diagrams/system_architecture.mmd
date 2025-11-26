@@ -1,0 +1,10 @@
+flowchart TD
+  Sensor --> MCU[MCU / ESP32]
+  MCU --> TinyML[TinyML Classifier]
+  TinyML --> SleepController[Sleep Controller]
+  SleepController -->|sleep/wake| DeepSleep[Deep Sleep (RTC)]
+  SleepController -->|uplink| Radio[Radio TX]
+  Radio --> Gateway[Gateway / Broker]
+  Gateway --> Cloud[Training & Storage]
+  Cloud --> Trainer[Simulator/Trainer]
+  Trainer -->|policy artifact| MCU

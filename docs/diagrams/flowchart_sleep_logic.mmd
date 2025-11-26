@@ -1,0 +1,10 @@
+flowchart TD
+  Start --> Wake
+  Wake --> ReadSensors
+  ReadSensors --> RunTinyML
+  RunTinyML --> |event_detected| Transmit
+  RunTinyML --> |no_event| CheckPolicy
+  Transmit --> CheckPolicy
+  CheckPolicy --> DecideSleep
+  DecideSleep --> DeepSleep
+  DeepSleep --> Wake
