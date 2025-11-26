@@ -47,6 +47,25 @@ chmod +x run_all.sh
 
 ```
 
+### Install Streamlit inside your virtual environment
+Make sure your venv is active (you already see (.venv) so it's active), then run:
+```
+pip install streamlit
+```
+Verify installation:
+```
+streamlit --version
+```
+If it prints a version number → success.
+Run the dashboard again
+From the root of your project:
+```
+streamlit run dashboard/app.py
+```
+It will open the dashboard in your browser:
+```http://localhost:8501
+```
+
 ### AI/ML-Based IoT Node Sleep Scheduler
 
 ### About
