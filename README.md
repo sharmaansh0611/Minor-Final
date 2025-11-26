@@ -78,6 +78,52 @@ This project demonstrates an end-to-end pipeline to design, train, and evaluate 
 ## Diagrams
 Mermaid diagrams are in `docs/diagrams/`. Use mermaid.live or VS Code to render.
 
+### Structure
+iot-sleep-scheduler/
+│
+├── README.md
+├── requirements.txt
+│
+├── simulator/
+│   ├── __init__.py
+│   ├── simulator_generate_traces.py
+│   ├── energy_model.py
+│   ├── event_generator.py
+│   └── utils.py
+│
+├── data/
+│   ├── dummy_traces.csv
+│   ├── high_event_traces.csv
+│   └── low_event_traces.csv
+│
+├── training/
+│   ├── rl_env.py
+│   ├── q_learning.py
+│   ├── policy_export.py
+│   ├── tinyml_classifier_training.ipynb
+│   └── models/
+│       └── (empty placeholders)
+│
+├── firmware/
+│   ├── esp32_sleep_scheduler.cpp
+│   ├── model_inference.cpp
+│   └── README_firmware.md
+│
+├── docs/
+│   ├── report.md
+│   ├── architecture.md
+│   ├── diagrams/
+│   │   ├── system_architecture.mmd
+│   │   ├── flowchart_sleep_logic.mmd
+│   │   └── rl_pipeline.mmd
+│   └── images/
+│       └── (auto generated diagrams)
+│
+└── experiments/
+    ├── evaluation.ipynb
+    └── plots/
+
+
 ## License & Author
 Author: <Dipanshu Sharma>  
 License: MIT
