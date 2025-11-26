@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 # 3. Generate dummy CSV data (default 24 hours, 3 nodes)
 ```
-python simulator/simulator_generate_traces.py --out data/dummy_traces.csv --nodes 3 --hours 24 --event-rate 1.2 --seed 42
+python3 -m  simulator.simulator_generate_traces --out data/dummy_traces.csv --nodes 3 --hours 24 --event-rate 1.2 --seed 42
 ```
 
 # 4. Train Q-learning baseline (runs on dummy sim environment)
