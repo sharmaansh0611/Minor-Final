@@ -1,21 +1,21 @@
-# 1. Create and activate virtual env (recommended)
+### 1. Create and activate virtual env (recommended)
 ```
 python3 -m venv .venv
 source .venv/bin/activate   # Linux/macOS
 # .venv\Scripts\activate    # Windows PowerShell
 ```
 
-# 2. Install dependencies
+### 2. Install dependencies
 ```
 pip install -r requirements.txt
 ```
 
-# 3. Generate dummy CSV data (default 24 hours, 3 nodes)
+### 3. Generate dummy CSV data (default 24 hours, 3 nodes)
 ```
 python3 -m  simulator.simulator_generate_traces --out data/dummy_traces.csv --nodes 3 --hours 24 --event-rate 1.2 --seed 42
 ```
 
-# 4. Train Q-learning baseline (runs on dummy sim environment)
+### 4. Train Q-learning baseline (runs on dummy sim environment)
 ```
 python3 -m  training.q_learning --episodes 2000 --save training/models/qtable.npy
 ```
@@ -24,41 +24,41 @@ Then
 python training/policy_export.py --qtable_path training/models/qtable.npy --out training/models/q_policy.json
 ```
 
-# 5. Train TinyML classifier (creates small Keras model and tflite)
+### 5. Train TinyML classifier (creates small Keras model and tflite)
 ```
 python training/tinyml_train.py --input data/dummy_traces.csv --out training/models/tiny_model.tflite
 ```
 
-# 6. Export policy table to a deployable JSON
+### 6. Export policy table to a deployable JSON
 ```
 python training/policy_export.py --qtable_path models/qtable.npy --out training/models/q_policy.json
 ```
 
-# 7. Run evaluation script to compare policies (uses CSVs)
+### 7. Run evaluation script to compare policies (uses CSVs)
 ```
 python experiments/evaluation.py --data data/dummy_traces.csv
 ```
 
-# To run all project at once
+### To run all project at once
 ```
 chmod +x run_all.sh
 ./run_all.sh
 
 ```
 
-# AI/ML-Based IoT Node Sleep Scheduler
+### AI/ML-Based IoT Node Sleep Scheduler
 
-## About
+### About
 This project demonstrates an end-to-end pipeline to design, train, and evaluate adaptive sleep scheduling for battery-powered IoT nodes using dummy data only. It combines a simulator, a Q-learning RL trainer, and a TinyML classifier training pipeline.
 
-## Repo layout
+### Repo layout
 (see top of README for tree)
 
-## Setup
+### Setup
 1. Create virtual env & activate
 2. `pip install -r requirements.txt`
 
-## Key commands
+### Key commands
 - Generate data:
   `python simulator/simulator_generate_traces.py --out data/dummy_traces.csv --nodes 3 --hours 24 --event-rate 1.2 --seed 42`
 - Train Q-learning:
@@ -70,15 +70,16 @@ This project demonstrates an end-to-end pipeline to design, train, and evaluate 
 - Run evaluation:
   `python experiments/evaluation.py --data data/dummy_traces.csv`
 
-## How to replace dummy data with real ESP32 logs
+### How to replace dummy data with real ESP32 logs
 1. Ensure your ESP32 logs match the CSV schema.
 2. Place the logs in `data/` and rename to `real_device_traces.csv`.
 3. Use the same training & export pipeline.
 
-## Diagrams
+### Diagrams
 Mermaid diagrams are in `docs/diagrams/`. Use mermaid.live or VS Code to render.
 
 ### Structure
+```
 iot-sleep-scheduler/
 │
 ├── README.md
@@ -122,8 +123,9 @@ iot-sleep-scheduler/
 └── experiments/
     ├── evaluation.ipynb
     └── plots/
+```
 
 
-## License & Author
+### License & Author
 Author: <Dipanshu Sharma>  
 License: MIT
