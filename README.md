@@ -27,6 +27,7 @@ python training/policy_export.py --qtable_path training/models/qtable.npy --out 
 ### 5. Train TinyML classifier (creates small Keras model and tflite)
 ```
 python training/tinyml_train.py --input data/dummy_traces.csv --out training/models/tiny_model.tflite
+
 ```
 
 ### 6. Export policy table to a deployable JSON
