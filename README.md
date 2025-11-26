@@ -17,7 +17,7 @@ python3 -m  simulator.simulator_generate_traces --out data/dummy_traces.csv --no
 
 # 4. Train Q-learning baseline (runs on dummy sim environment)
 ```
-python3 -m  training.q_learning --episodes 2000 --save models/qtable.npy
+python3 -m  training.q_learning --episodes 2000 --save training/models/qtable.npy
 ```
 
 # 5. Train TinyML classifier (creates small Keras model and tflite)
